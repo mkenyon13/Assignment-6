@@ -1,4 +1,4 @@
-# [Classes and Unit Testing]
+# Classes and Unit Testing
 
 ## Description
 
