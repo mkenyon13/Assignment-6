@@ -14,7 +14,7 @@ from enum import Enum
 
 
 #A class containing fixed and variable mortgage rates
-class MortgageRate:
+class MortgageRate(Enum):
     
     """
     Description: This class contains various mortage rate amounts for caclulations later.
@@ -34,7 +34,7 @@ class MortgageRate:
         self.VARIABLE_1 =VARIABLE_1
 
 #A class that stores how often payments can be made.
-class PaymentFrequency :
+class PaymentFrequency(Enum):
     """
     Description: This class contains the available payment periods.
 
