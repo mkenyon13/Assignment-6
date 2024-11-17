@@ -61,39 +61,77 @@ class Mortgage:
         if self.__amortization not in VALID_AMORTIZATION:
             raise ValueError("Amortization provided is invalid.")
         
-        
-        
 
-        
+## ACCESSORS 
 
-## ACCESSORS
-    # @property
-    # def Loan_Amount(self) -> float:
-    #     """
-    #     Accessor for _Loan_Amount attribute
-    #     """
-    #     return self.__Loan_Amount
+    # loan_amount ACCESSORS 
+    @property
+    def loan_amount(self) -> float:
+         """
+         Accessor for loan_amount attribute
+         """
+         return self.__loan_amount
     
-    # @property
-    # def Rate(self) -> str:
-    #     """
-    #     Accessor for _Rate attribute
-    #     """
-    #     return self.__rate
-    
-    # @property
-    # def Frequency(self) -> str:
-    #     """
-    #     Accessor for _Frequency attribute
-    #     """
-    #     return self.__frequency
-    
-    # @property
-    # def Ammortization(self) -> str:
-    #     """
-    #     Accessor for _Ammortization attribute
-    #     """
-    #     return self.__Amortization
+    # rate ACCESSORS    
+    @property
+    def rate(self) -> str:
+         """
+         Accessor for _rate attribute
+         """
+         return self.__rate
+
+    # frequency ACCESSORS    
+    @property
+    def frequency(self) -> str:
+         """
+        Accessor for _frequency attribute
+         """
+         return self.__frequency
+
+    # ammortization ACCESSORS 
+    @property
+    def ammortization(self) -> str:
+         """
+         Accessor for _ammortization attribute
+         """
+         return self.__amortization
+
+# MUTATORS
+
+    # loan_amount MUTATORS
+    @loan_amount.setter
+    def loan_amount(self, value: float):
+        """
+        Checks if the loan amount is positive.
+        Args:
+            value (str): The loan amount.
+        Raises:
+            ValueError: When the value provided is 
+            negative.
+        """
+                
+        if value <= 0:
+            raise ValueError("Loan Amount must be positive.")
+        
+        self.__loan_amount = value
+
+
+    # # loan_amount MUTATORS
+    # @loan_amount.setter
+    # def loan_amount(self, value: str):
+    #     """"""
+
+    # # loan_amount MUTATORS
+    # @loan_amount.setter
+    # def loan_amount(self, value: str):
+    #     """"""
+
+    # # loan_amount MUTATORS
+    # @loan_amount.setter
+    # def loan_amount(self, value: str):
+        """"""
+
+
 
 
 
