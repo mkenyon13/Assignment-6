@@ -116,10 +116,28 @@ class Mortgage:
         self.__loan_amount = value
 
 
-    # # loan_amount MUTATORS
-    # @loan_amount.setter
-    # def loan_amount(self, value: str):
-    #     """"""
+    # loan_amount MUTATORS
+    @rate.setter
+    def rate(self, value: str):
+        """
+        Converts the input to the correct data type.
+        Args:
+            value (str): The rate amount.
+        Raises:
+            ValueError: When the value provided is 
+            invalid.
+        """
+        try:
+            if value in MortgageRate:
+                self.__rate = value 
+        except ValueError:
+            raise ValueError("Rate provided is invalid.")
+        
+        
+        
+
+
+
 
     # # loan_amount MUTATORS
     # @loan_amount.setter
@@ -129,7 +147,7 @@ class Mortgage:
     # # loan_amount MUTATORS
     # @loan_amount.setter
     # def loan_amount(self, value: str):
-        """"""
+        
 
 
 
