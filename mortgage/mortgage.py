@@ -133,6 +133,21 @@ class Mortgage:
         except ValueError:
             raise ValueError("Rate provided is invalid.")
         
+    @frequency.setter
+    def rate(self, value: str):
+        """
+        Converts the input to the correct data type.
+        Args:
+            value (str): The rate amount.
+        Raises:
+            ValueError: When the value provided is 
+            invalid.
+        """
+        try:
+            if value in PaymentFrequency:
+                self.__frequency = value 
+        except ValueError:
+            raise ValueError("Frequency provided is invalid.")
         
         
 
