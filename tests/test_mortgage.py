@@ -7,7 +7,7 @@ Usage: Use the tests encapsulated within this class to test the MortgagePayment 
 
 from unittest import TestCase
 from mortgage.mortgage import Mortgage
-from mortgage.pixell_lookup import MortgageRate, PaymentFrequency
+from mortgage.pixell_lookup import MortgageRate, PaymentFrequency, VALID_AMORTIZATION
 
 class MortgageTests(TestCase):
     """
@@ -178,10 +178,31 @@ class MortgageTests(TestCase):
         #Assert        
         self.assertEqual(expected, str(context.exception))
 
-    #     #Act
-    #     mortgage = Mortgage(loan_amount, rate, frequency, amortization)
-    #     #Assert
-    #     self.assertEqual(loan_amount, mortgage.loan_amount)
+    def test_amortization_mutator_type_valid(self):
+         #Arange
+        mortgage = Mortgage(5000,"FIXED_5", "MONTHLY", 10)        
+        expected = 10
+        
+        #Act
+        mortgage.ammortization = VALID_AMORTIZATION[1]
+        
+        #Assert        
+        self.assertEqual(expected, mortgage.ammortization)
+
+    #This test isn't working 
+    def test_amortization_mutator_type_invalid(self):
+        #Arange
+        mortgage = Mortgage(5000,"FIXED_5", "MONTHLY", 10)        
+        expected = "Amortization provided is invalid." 
+        
+        #Act
+        with self.assertRaises(ValueError) as context:
+            mortgage.ammortization = "INVALID" 
+        
+        #Assert        
+        self.assertEqual(expected, str(context.exception))
+
+    
     #if __name__ == '__main__':
     #   TestCase.main()
     

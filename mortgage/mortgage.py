@@ -138,7 +138,7 @@ class Mortgage:
         """
         Converts the input to the correct data type.
         Args:
-            value (str): The rate amount.
+            value (str): The frequency amount.
         Raises:
             ValueError: When the value provided is 
             invalid.
@@ -148,21 +148,29 @@ class Mortgage:
                 self.__frequency = value 
         except ValueError:
             raise ValueError("Frequency provided is invalid.")
+    
+    @ammortization.setter
+    def rate(self, value: str):
+        """
+        Checks for a valid input that matches VALID_AMORTIZATION.
+        Args:
+            value (str): The ammortization amount.
+        Raises:
+            ValueError: When the value provided is 
+            invalid.
+        """
+        try:
+            if value in VALID_AMORTIZATION:
+                self.__amortization = value 
+        except ValueError:
+            raise ValueError("Amortization provided is invalid.")
         
         
 
 
 
 
-    # # loan_amount MUTATORS
-    # @loan_amount.setter
-    # def loan_amount(self, value: str):
-    #     """"""
-
-    # # loan_amount MUTATORS
-    # @loan_amount.setter
-    # def loan_amount(self, value: str):
-        
+ 
 
 
 
