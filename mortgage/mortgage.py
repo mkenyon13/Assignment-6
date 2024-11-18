@@ -60,7 +60,32 @@ class Mortgage:
 
         if self.__amortization not in VALID_AMORTIZATION:
             raise ValueError("Amortization provided is invalid.")
+
+    #calculates the mortgage payment
+    def calculate_payment(self) -> float:
+        """
+        Description: Takes in parameter values from __init__ and calculates the mortgage payment.
         
+        Args:
+            principal (float): The amount of money that will be borrowed.
+            interest_rate (str): The annual interest rate divided by the frequency.
+            payment_number (str): The total number of payments, found by multiplying the amortization by the frequency. 
+            calculated_payment (float): The calculated monthly mortgage payment. 
+
+        Raises:
+            ValueError: If invalid inputs are used for calculation.            
+        """
+
+        try:
+            
+            principal = self.__loan_amount
+            interest_rate = (self.__rate / self.__frequency)
+            payment_number = (self.__amortization * self.frequency)
+
+            calculated_payment = principal((interest_rate(1 + interest_rate) ** payment_number) / (((1 + interest_rate) ** payment_number) - 1))     
+        except ValueError:
+            raise ValueError("Invalid input for calculation")
+        return calculated_payment        
 
 ## ACCESSORS 
 
@@ -164,6 +189,8 @@ class Mortgage:
                 self.__amortization = value 
         except ValueError:
             raise ValueError("Amortization provided is invalid.")
+        
+
         
         
 

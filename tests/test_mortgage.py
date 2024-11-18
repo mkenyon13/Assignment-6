@@ -202,6 +202,21 @@ class MortgageTests(TestCase):
         #Assert        
         self.assertEqual(expected, str(context.exception))
 
+    def test_calculate_mortgage_valid_input(self):
+        #Arange & Act
+        principal = 5000
+        interest_rate = (MortgageRate.FIXED_5 / PaymentFrequency.MONTHLY)
+        payment_number = (30 * PaymentFrequency.MONTHLY)
+
+        mortgage_payment = Mortgage.calculate_payment()
+
+        #Assert
+        self.assertEqual(principal, mortgage_payment._calculate_payment__principal)
+        self.assertEqual(interest_rate, mortgage_payment._calculate_payment__interest_rate) 
+        self.assertEqual(payment_number, mortgage_payment._calculate_payment__payment_number) 
+        
+
+
     
     #if __name__ == '__main__':
     #   TestCase.main()
