@@ -85,7 +85,15 @@ class Mortgage:
             calculated_payment = principal((interest_rate(1 + interest_rate) ** payment_number) / (((1 + interest_rate) ** payment_number) - 1))     
         except ValueError:
             raise ValueError("Invalid input for calculation")
-        return calculated_payment        
+        return calculated_payment
+
+    # __str__ method for displaying the input data 
+    def __str__(self):
+        ""        
+
+    #__repr__ method for displaying the account object
+    def __repr__(self):
+        ""
 
 ## ACCESSORS 
 

@@ -213,7 +213,22 @@ class MortgageTests(TestCase):
         #Assert
         self.assertEqual(principal, mortgage_payment._calculate_payment__principal)
         self.assertEqual(interest_rate, mortgage_payment._calculate_payment__interest_rate) 
-        self.assertEqual(payment_number, mortgage_payment._calculate_payment__payment_number) 
+        self.assertEqual(payment_number, mortgage_payment._calculate_payment__payment_number)
+
+
+    #__str__ test
+    def test_str_correct(self):
+        # Arrange
+        mortgage = Mortgage(5000,"FIXED_5", "MONTHLY", 10)
+        expected = (f"Loan Amount: 5000"
+                + f"\nRate: FIXED_5"
+                + f"\nFrequency: MONTHLY"
+                + f"\nAmortization: 30 Years")
+        
+        actual = str(mortgage)
+        
+
+        self.assertEqual(expected, actual) 
         
 
 
